@@ -1,0 +1,203 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1d2545;
+  // color: #6f7389;
+}
+.wrap {
+  width: 1200px;
+  // background-color: #546484;
+  padding: 40px;
+}
+.container {
+  width: 800px;
+  padding: 50px 50px;
+  margin: auto;
+  background-color: #242e4c;
+  border-radius: 20px;
+}
+#manager-head {
+  // display: flex;
+  color: #d1d1d1;
+  nav {
+    display: flex;
+    margin-bottom: 30px;
+    i {
+      line-height: 1.7;
+      margin-right: 10px;
+    }
+  }
+  .search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #6f7389;
+    #search-bar {
+      border: 2px solid #1d2545;
+      border-radius: 5px;
+      padding: 10px 10px;
+      margin: 30px 0;
+      i {
+        cursor: pointer;
+        margin-right: 10px;
+        transform: scale(1);
+        transition: transform 0.2s ease, color 0.2s ease;
+        &:hover {
+          transform: scale(1.2);
+          color: #fff;
+        }
+      }
+      input {
+        background-color: transparent;
+        border: none;
+        font-size: 16px;
+        color: #fff;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    #filter {
+      cursor: pointer;
+
+      color: #d1d1d1;
+      border: 2px solid #1d2545;
+      padding: 10px 20px;
+      margin: 10px 0;
+      border-radius: 5px;
+
+      position: relative;
+      transition: background-color 0.2s ease;
+      &:hover {
+        background-color: #6f7389;
+      }
+      &::after {
+        content: '3';
+        position: absolute;
+        right: -14px;
+        top: -14px;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        background-color: #d6a8b7;
+      }
+    }
+  }
+}
+#manager-body {
+  text-align: left;
+  table {
+    color: #d1d1d1;
+
+    tr {
+      background-color: #1d2545;
+      margin-bottom: 10px;
+      border-bottom: 5px solid #242e4c;
+      &:only-of-type {
+        background-color: transparent;
+      }
+      &:not(:only-of-type):hover {
+        background-color: #546484;
+      }
+
+      th,
+      td {
+        min-width: 100px;
+        padding: 20px 0 20px 30px;
+      }
+      th {
+        padding: 20px 0 10px 30px;
+
+        &:last-child {
+          color: transparent;
+        }
+        &:first-child {
+          border-radius: 10px 0 0 10px;
+        }
+        &:last-child {
+          border-radius: 0 10px 10px 0;
+        }
+      }
+      td {
+        position: relative;
+        i {
+          padding-right: 10px;
+        }
+        &:last-child i {
+          cursor: pointer;
+          display: none;
+        }
+
+        &:first-child {
+          border-radius: 10px 0 0 10px;
+        }
+        &:last-child {
+          border-radius: 0 10px 10px 0;
+        }
+        &:first-child::after {
+          position: absolute;
+          content: '';
+          left: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          width: 5px;
+          height: auto;
+          background-color: #ccc;
+          border-radius: 20px 0 0 20px;
+        }
+        // &:first-child::after + td {
+        //   background-color: #fa0;
+        // }
+      }
+      &:hover {
+        td {
+          i {
+            display: inline-block;
+          }
+        }
+      }
+      & td:last-child {
+        text-align: right;
+        padding-right: 0px;
+        i {
+          padding: 0 20px;
+          transform: scale(1);
+          transition: transform 0.2s ease;
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+  }
+  .open {
+    text-align: right;
+    padding: 20px 0;
+    cursor: pointer;
+    i {
+      font-size: 40px;
+      color: #d6a8b7;
+      transform: scale(1);
+      transition: transform 0.3s ease;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
