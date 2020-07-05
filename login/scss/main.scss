@@ -32,11 +32,21 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    height: 117%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border-right: 1px solid #ccc;
+  }
   a {
     text-decoration: none;
     color: $main-color;
     padding-left: 5px;
-    transition: color 0.2s ease-in;
+    transition: color 0.2s ease;
     &:hover {
       color: #9ebafd;
     }
@@ -49,6 +59,8 @@ body {
     border-radius: 5px;
     margin-bottom: 20px;
     padding: 10px;
+    cursor: pointer;
+
     transition: background-color 0.3s ease-in-out, color 0.2s ease;
     &[type='submit'] {
       background-color: #333;
@@ -58,7 +70,7 @@ body {
       outline: none;
     }
     &:hover {
-      background-color: #9ebafd;
+      background-color: #aaa;
       color: #fff;
     }
   }
@@ -94,6 +106,7 @@ body {
       display: flex;
       align-items: center;
       input {
+        cursor: pointer;
         margin: 0;
         margin-right: 10px;
       }
@@ -115,16 +128,16 @@ body {
   padding: 20px;
   .introBox {
     padding: 20px;
-    padding-left: 50px;
+    padding-left: 70px;
   }
   i {
     float: left;
     color: $main-color;
     text-indent: -35px;
-    line-height: 20px;
+    line-height: 1.3;
   }
   p {
     padding: 10px 0;
-    line-height: 30px;
+    line-height: 1.8;
   }
 }
