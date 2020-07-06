@@ -3,9 +3,6 @@
   padding: 0;
   list-style: none;
 }
-table {
-  border-collapse: collapse;
-}
 body {
   display: flex;
   justify-content: center;
@@ -14,10 +11,9 @@ body {
   background-color: #1d2545;
   // color: #6f7389;
 }
-.wrap {
-  width: 1200px;
-  // background-color: #546484;
-  padding: 40px;
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
 .container {
   width: 800px;
@@ -27,7 +23,6 @@ body {
   border-radius: 20px;
 }
 #manager-head {
-  // display: flex;
   color: #d1d1d1;
   nav {
     display: flex;
@@ -103,84 +98,100 @@ body {
   text-align: left;
   table {
     color: #d1d1d1;
-
-    tr {
-      background-color: #1d2545;
-      margin-bottom: 10px;
-      border-bottom: 5px solid #242e4c;
-      &:only-of-type {
-        background-color: transparent;
-      }
-      &:not(:only-of-type):hover {
-        background-color: #546484;
-      }
-
-      th,
-      td {
-        min-width: 100px;
-        padding: 20px 0 20px 30px;
-      }
-      th {
-        padding: 20px 0 10px 30px;
-
-        &:last-child {
-          color: transparent;
-        }
-        &:first-child {
+    th,
+    td {
+      min-width: 60px;
+      padding: 20px 0 20px 30px;
+    }
+    thead {
+      tr th {
+        padding-bottom: 10px;
+        &:first-of-type {
           border-radius: 10px 0 0 10px;
         }
-        &:last-child {
+        &:last-of-type {
           border-radius: 0 10px 10px 0;
         }
       }
-      td {
-        position: relative;
-        i {
-          padding-right: 10px;
-        }
-        &:last-child i {
-          cursor: pointer;
-          display: none;
-        }
-
-        &:first-child {
-          border-radius: 10px 0 0 10px;
-        }
-        &:last-child {
-          border-radius: 0 10px 10px 0;
-        }
-        &:first-child::after {
-          position: absolute;
-          content: '';
-          left: 0;
-          top: 0;
-          bottom: 0;
-          margin: auto;
-          width: 5px;
-          height: auto;
-          background-color: #ccc;
-          border-radius: 20px 0 0 20px;
-        }
-        // &:first-child::after + td {
-        //   background-color: #fa0;
-        // }
-      }
-      &:hover {
-        td {
-          i {
-            display: inline-block;
+    }
+    tbody {
+      tr {
+        background-color: #1d2545;
+        border-bottom: 5px solid #242e4c;
+        &:hover {
+          background-color: #546484;
+          td {
+            &:last-of-type i {
+              opacity: 1;
+            }
           }
         }
-      }
-      & td:last-child {
-        text-align: right;
-        padding-right: 0px;
-        i {
-          padding: 0 20px;
-          transform: scale(1);
-          transition: transform 0.2s ease;
-          &:hover {
-            transform: scale(1.2);
+        td {
+          position: relative;
+          i {
+            padding-right: 10px;
+            &.fa-circle {
+              font-size: 10px;
+            }
+          }
+
+          &:first-of-type {
+            border-radius: 10px 0 0 10px;
+          }
+          &:last-of-type {
+            border-radius: 0 10px 10px 0;
+          }
+          &:last-of-type i {
+            cursor: pointer;
+            opacity: 0;
+          }
+
+          &:first-of-type::after {
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 5px;
+            height: auto;
+            background-color: #ccc;
+            border-radius: 20px 0 0 20px;
+          }
+          &:last-of-type {
+            text-align: right;
+            i {
+              padding: 0 20px;
+              transform: scale(1);
+              transition: transform 0.2s ease;
+              &:hover {
+                transform: scale(1.2);
+              }
+            }
+          }
+        }
+        &.priority-200 {
+          td:first-of-type:after {
+            background-color: #fa0;
+          }
+          td i.fa-circle {
+            color: #fa0;
+          }
+        }
+        &.priority-300 {
+          td:first-of-type:after {
+            background-color: #648bcc;
+          }
+          td i.fa-circle {
+            color: #648bcc;
+          }
+        }
+        &.priority-600 {
+          td:first-of-type:after {
+            background-color: #84cca4;
+          }
+          td i.fa-circle {
+            color: #84cca4;
           }
         }
       }
